@@ -51,7 +51,8 @@ includes/ol/vm.h: src/olvm.c
 tmp/repl.c: repl
 # vim
 ifneq ($(shell which xxd),)
-	xxd --include repl >tmp/repl.c
+	echo "#include <stddef.h>" >tmp/repl.c
+	xxd --include repl >>tmp/repl.c
 else
 # coreutils
 ifneq ($(shell which od),)
